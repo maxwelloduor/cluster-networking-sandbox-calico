@@ -1,0 +1,12 @@
+apiVersion: projectcalico.org/v3
+kind: StagedNetworkPolicy
+metadata:
+  name: staged-db-access
+  namespace: yaobank
+spec:
+  selector: app == "database"
+  ingress:
+    - action: Allow
+      source:
+        selector: app == "summary"
+    - action: Deny

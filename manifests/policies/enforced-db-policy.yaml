@@ -1,0 +1,12 @@
+apiVersion: projectcalico.org/v3
+kind: NetworkPolicy
+metadata:
+  name: enforce-db-access
+  namespace: yaobank
+spec:
+  selector: app == "database"
+  ingress:
+    - action: Allow
+      source:
+        selector: app == "summary"
+    - action: Deny
