@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: rogue
+  namespace: yaobank
+  labels:
+    role: attacker
+spec:
+  containers:
+    - name: rogue
+      image: nicolaka/netshoot
+      command: ["sleep", "infinity"]
